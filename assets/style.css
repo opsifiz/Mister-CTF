@@ -84,3 +84,41 @@ body{
   font-size: 28px;
   font-weight: bold;
 }
+
+.stages {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.stage{
+    width: 150px;
+    background-color: #f0f0f0;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.stages a{
+    text-decoration: none;
+    color: black;
+}
+
+.extra{
+    text-decoration: none;
+    color: black;
+    width: 150px;
+    background-color: #f0f0f0;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-weight: bold;
+}

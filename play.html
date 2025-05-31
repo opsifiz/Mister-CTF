@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mister CTF</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="icon" href="favicon.ico">
 </head>
-<body>
+<body class="center">
     <section class="chall">
     </section>
     <script>
@@ -27,6 +29,21 @@
             challenge.innerHTML = `Challenge : ${res.challenge}`;
             div.appendChild(challenge);
             
+            if(res.files != null){
+                let list = document.createElement("div");
+                res.files.forEach(file => {
+                    let container = document.createElement("div");
+                    container.classList.add("file");
+                    // console.log("File : ",file)
+                    let a = document.createElement("a");
+                    a.href = `content/${id}/${file}`;
+                    a.innerText = `${file}`;
+                    container.appendChild(a);
+                    list.appendChild(container);
+                });
+                div.appendChild(list);
+            }
+
             let input = document.createElement("input");
             input.type="text";
             input.autocomplete = "off";
@@ -58,9 +75,11 @@
             console.log(ans);
             var hash = CryptoJS.MD5(ans);
             if(flag == hash){
-                alert("Coreect!!");
+                alert("Correct!!");
                 alert("Get Ready for NEXT Stage!!");
-                window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0";
+                if(1 <= Number(id) && Number(id) <= 10) window.location.href = "play.html?stage=" + (Number(id) + 1);
+                else window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0";
+
             }else{
                 alert("Incorrect *^*");
             }

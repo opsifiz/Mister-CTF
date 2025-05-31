@@ -3,5 +3,11 @@
         "name" : "The Beginning",
         "challenge" : "Hide<p style=\"display: none;\">MROCTF{CAN-You-SEE-M3}</p> here!!!",
         "flag" : "5268463451b0056bfbd2ae9b38aae285"
+    },
+    "2" : {
+        "name" : "Q อ๊าาาา~~~",
+        "challenge" : "Scan Q อ๊าาาา~~~ แล้ว Flag จะออก!!!",
+        "files" : ["qrcode.pdf"],
+        "flag" : "2ccb6b2a1dd996e7ed656346d4ca90d7"
     }
 }

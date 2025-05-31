@@ -50,6 +50,25 @@ body{
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.chall{
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+}
+
+.file{
+    background-color: #5c728f;
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.file a{
+    text-decoration: none;
+    color: white;
+}
+
 /* Modal Content */
 .modal-content {
   background-color: #fefefe;

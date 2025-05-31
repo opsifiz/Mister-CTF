@@ -15,12 +15,11 @@
         .then(response => response.json())
         .then(res => {
             let id = new URLSearchParams(document.location.search).get("stage");
-            if(1 <= Number(id) && Number(id) <= 10) window.location.href = "play.html?stage=" + (Number(id) + 1);
-            else window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0";
+            if(1 > Number(id) || Number(id) > 10) window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0";
             res = res[id];
-
+            
             let div = document.createElement("div");
-
+            
             console.log("Name : ", res.name);
             let name = document.createElement("p");
             name.innerText = `Name : ${res.name}`;
@@ -62,7 +61,6 @@
         .catch(error => {
             console.error("Error loading JSON:", error);
         });
-
     </script>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
@@ -79,6 +77,7 @@
             if(flag == hash){
                 alert("Correct!!");
                 alert("Get Ready for NEXT Stage!!");
+                window.location.href = "play.html?stage=" + (Number(id) + 1);
 
             }else{
                 alert("Incorrect *^*");

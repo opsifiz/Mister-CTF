@@ -8,12 +8,21 @@
    <rdf:Seq>
     <rdf:li rdf:parseType='Resource'>
      <Attrib:Created>2025-05-31</Attrib:Created>
-     <Attrib:ExtId>cda624b1-83f9-4112-af7f-c84f9527adfd</Attrib:ExtId>
+     <Attrib:ExtId>4a24c1d6-991b-4aa0-aa06-2797bc9acca1</Attrib:ExtId>
      <Attrib:FbId>525265914179580</Attrib:FbId>
      <Attrib:TouchType>2</Attrib:TouchType>
     </rdf:li>
    </rdf:Seq>
   </Attrib:Ads>
+ </rdf:Description>
+
+ <rdf:Description rdf:about=''
+  xmlns:dc='http://purl.org/dc/elements/1.1/'>
+  <dc:title>
+   <rdf:Alt>
+    <rdf:li xml:lang='x-default'>MROCTF{FAKE-FLAG} - Pakin</rdf:li>
+   </rdf:Alt>
+  </dc:title>
  </rdf:Description>
 
  <rdf:Description rdf:about=''

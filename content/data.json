@@ -9,5 +9,11 @@
         "challenge" : "Scan Q อ๊าาาา~~~ แล้ว Flag จะออก!!!",
         "files" : ["qrcode.pdf"],
         "flag" : "2ccb6b2a1dd996e7ed656346d4ca90d7"
+    },
+    "3" : {
+        "name" : "โดนเกียน",
+        "challenge" : "หนูคินน~",
+        "files" : ["Pakin.jpg"],
+        "flag" : "c5aa269c22e3c10e18d749c353ff7bbc"
     }
 }

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mister CTF</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body style="margin-top: 50px;">
+    <section class="nav">
+    </section>
+    <section class="actions center">
+        <div class="title center" style="margin: 25px 25px">
+            <h1>
+                Mister CTF!!
+            </h1>
+            <p class="subtitle">
+                Capture the Flag🚩 With MisterO
+            </p>
+        </div>
+        <div class="play" onclick="play()">
+            <h3 class="action center">
+                Play
+            </h3>
+        </div>
+        <br>
+        <div class="about" id="about-btn">
+            <h3 class="action center" onclick="about()">
+                About
+            </h3>
+        </div>
+        <br>
+        <div class="contact" id="contact-btn">
+            <h3 class="action center" onclick="contact()">
+                Contact
+            </h3>
+        </div>
+    </section>
+    <!-- The Modal -->
+    <div id="about-content" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" id="close-about">&times;</span>
+            <p>I AM MISTER OOOOOOOO</p>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="contact-content" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" id="close-contact">&times;</span>
+            <p>
+                FB : <br>
+                IG: <br>
+                DISCORD : <br>
+                GITHUB : <br>
+                LinkedIn : <br>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+</script>
+<script>
+    var modal1 = document.getElementById("about-content");
+    var btn1 = document.getElementById("about-btn");
+    var span1 = document.getElementsByClassName("close")[0];
+    var span2 = document.getElementsByClassName("close")[1];
+    var modal2 = document.getElementById("contact-content");
+    var btn2 = document.getElementById("contact-btn");
+    btn1.onclick = function() {
+        modal1.style.display = "block";
+    }
+    btn2.onclick = function() {
+        modal2.style.display = "block";
+    }
+    span1.onclick = function() {
+        modal1.style.display = "none";
+    }
+    span2.onclick = function() {
+        modal2.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+    }
+
+    function play(){
+        console.log("Play!!");
+        window.location.href = "play.html?stage=1"
+    }
+    function about(){
+        console.log("about!!");
+    }
+    function contact(){
+        console.log("contact!!");
+    }
+</script>
+
+</html>

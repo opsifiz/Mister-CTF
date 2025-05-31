@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mister CTF</title>
+</head>
+<body>
+    <section class="chall">
+    </section>
+    <script>
+        fetch('content/data.json')
+        .then(response => response.json())
+        .then(res => {
+            let id = new URLSearchParams(document.location.search).get("stage");
+            res = res[id];
+
+            let div = document.createElement("div");
+
+            console.log("Name : ", res.name);
+            let name = document.createElement("p");
+            name.innerText = `Name : ${res.name}`;
+            div.appendChild(name);
+
+            console.log("Challenge : ", res.challenge);
+            let challenge = document.createElement("p");
+            challenge.innerHTML = `Challenge : ${res.challenge}`;
+            div.appendChild(challenge);
+            
+            let input = document.createElement("input");
+            input.type="text";
+            input.autocomplete = "off";
+            input.id = `ans-${id}`;
+            div.appendChild(input);
+            
+            let submit = document.createElement("button");
+            submit.innerText = "Submit!!"
+            submit.onclick = () => judge(id);
+            div.appendChild(submit);
+            
+            document.querySelector("section.chall").append(div)
+        })
+        .catch(error => {
+            console.error("Error loading JSON:", error);
+        });
+
+    </script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+<script>
+    function judge(id){
+        fetch('content/data.json')
+        .then(response => response.json())
+        .then(res => {
+            let flag = res[id].flag;
+            let ans = document.getElementById(`ans-${id}`).value;
+            console.log(ans);
+            var hash = CryptoJS.MD5(ans);
+            if(flag == hash){
+                alert("Coreect!!");
+                alert("Get Ready for NEXT Stage!!");
+                window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0";
+            }else{
+                alert("Incorrect *^*");
+            }
+        })
+        .catch(error => {
+            console.error("Error loading JSON:", error);
+        });
+    }
+</script>
+</html>

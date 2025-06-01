@@ -58,7 +58,7 @@
     "8" : {
         "name" : "ดนตรีแห่งหายนะ",
         "challenge" : "Steg ชอบเพลงเพลงนี้มากๆ เลย Steg เลยซ้อนของสำคัญไว้ในเพลงนี้",
-        "files" : ["chall8.zip","enc.py"],
+        "files" : ["chall8.txt","enc.py"],
         "require" : [1],
         "flag" : "ae2983eb3e16a10896dda9d59f3fa510",
         "key" : "3b2a343005b11ba03b7781f950f58c8574c9ec77"

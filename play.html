@@ -49,7 +49,7 @@
         .then(res => {
             if(id != null && (1 > Number(id) || Number(id) > 10)) window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0";
             if(id != null){
-                if(res[id]["require"] !== null){
+                if (Array.isArray(res[id]["require"])) {
                     res[id]["require"].forEach(idx => {
                         if(CryptoJS.SHA1(window.localStorage.getItem(`stage-${idx}`)).toString() != res[idx]["key"]){
                             alert(`Please do Stage-${idx} to unlock this stage!`);

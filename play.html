@@ -88,7 +88,7 @@
             }else{
                 let flag = 1;
                 for(let i=1;i<=10;i++){
-                    if(window.localStorage.getItem(`stage-${i}`) === null || CryptoJS.SHA1(window.localStorage.getItem(`stage-${i}`)).toString()  != CryptoJS.SHA1(res[i]['key']).toString()){
+                    if(window.localStorage.getItem(`stage-${i}`) === null || CryptoJS.SHA1(window.localStorage.getItem(`stage-${i}`)).toString()  != res[i]['key']){
                         flag = 0;
                         console.log("break = ", i);
                         break;

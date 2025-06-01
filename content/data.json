@@ -4,42 +4,42 @@
         "challenge" : "Hide<p style=\"display: none;\">MROCTF{CAN-You-SEE-M3}</p> here!!!",
         "flag" : "5268463451b0056bfbd2ae9b38aae285",
         "files" : [],
-        "key" : "ecdfb6dfbf05e0ad2ee368c5f147c98cd5c3936e"
+        "key" : "03d898e68b5aab3078517206a0d06eb428194069"
     },
     "2" : {
         "name" : "Q อ๊าาาา~~~",
         "challenge" : "Scan Q อ๊าาาา~~~ แล้ว Flag จะออก!!!",
         "files" : ["qrcode.pdf"],
         "flag" : "2ccb6b2a1dd996e7ed656346d4ca90d7",
-        "key" : "42a3cdbd6935e8af244516db3d0eac1c674758b2"
+        "key" : "59fc5e858dac1dc6fb26b93c4757c59bee46b0e2"
     },
     "3" : {
         "name" : "โดนเกียน",
         "challenge" : "หนูคินน~",
         "files" : ["Pakin.PNG"],
         "flag" : "c5aa269c22e3c10e18d749c353ff7bbc",
-        "key" : "ebc10ca4bb70f65b51197ddeb882750dfc747991"
+        "key" : "b157a8188de5096075c181868511a77c6f64ae74"
     },
     "4" : {
         "name" : "อย่าแกะ__หนูน๊ะะ >~< อ๊าาา~~~ //โดนแกะ zip",
         "challenge" : "ขวั่กๆ แกร๊กๆๆๆๆๆๆ ก็<a href=\"https://youtu.be/VLXtaFXsUHA?si=uf_1p5AO_OPcjX5I&t=1207\">แกะ</a>รหัสผ่านเลย",
         "files" : ["yamaetekudasai.jpg"],
         "flag" : "5c783a5231d317acc5038e12eba6e190",
-        "key" : "96c90c5dc0dfe89dbcbaa2bd34eeb6e852ca8d9e"
+        "key" : "9492f8548e38de859b64d18329b61814f8795fbe"
     },
     "5" : {
         "name" : "พวกนายทำอะไรกัน",
         "challenge" : "Waigoon ได้แอบเข้าบ้าน Nagornz โดย Waigoon กับ Nagornz ได้ Ook.!? กัน<br>โดยระหว่างที่พวกเขาได้ทำกัน Waigoon ได้คร่ำครวญถึง Nagornz ว่า โอ๊ย Nagronz, โอ๊ย~ Nagornz<br>อีกทั้งยังได้หายใจเป็นจังหวะสั้น/ยาวอีกด้วย",
         "files" : ["จังหวะการหายใจ"],
         "flag" : "77e0797540c5c7f5759379cb98486923",
-        "key" : "1f65abeebe31d57b8e89c374f3a455110cdcd67b"
+        "key" : "5465064874f0f9ca6cde90be3c5e347b457ab0ce"
     },
     "6" : {
-        "name" : "",
-        "challenge" : "",
-        "files" : [],
-        "flag" : "",
-        "key" : ""
+        "name" : "O(log(lufychop))",
+        "challenge" : "=kp8oouh4k84^,b.0,ks]y'0kdwfhgsiupPmv',k c9jfh;p8;k,;jk'gx]jkmujvp^j.o.0g-k g-k07'vpkd.sh8ovnjoi^h0ydg-kfh;p Ffp86I9hv'sk;jkg-k8nv.8i<br>Answer Format : MROCTF{[=njv0ib'-v'g-k]:[d6Pc0]} เช่น MROCTF{คนหล่อ:1234}",
+        "files" : ["whoishe.png","d6Pc0.cpp","d6Pc0.exe"],
+        "flag" : "e1ca8c00b08085a4b6e94df704b6ae1c",
+        "key" : "51675d1afdb11303586a7c9c1bf21fc643ac0e01"
     },
     "7" : {
         "name" : "",

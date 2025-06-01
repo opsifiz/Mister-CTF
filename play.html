@@ -17,24 +17,31 @@
                 Capture the Flag🚩 With MisterO
             </p>
         </div>
-        <hr>
+        <hr style="width: min(1000px, 90%);">
     </section>
     <script>
         let id = new URLSearchParams(document.location.search).get("stage");
         if(id == null){
             let div = document.createElement("div");
-            div.innerHTML = `<div class="stages">
-            <a class="stage" href="?stage=1">Stage 1</a>
-            <a class="stage" href="?stage=2">Stage 2</a>
-            <a class="stage" href="?stage=3">Stage 3</a>
-            <a class="stage" href="?stage=4">Stage 4</a>
-            <a class="stage" href="?stage=5">Stage 5</a>
-            <a class="stage" href="?stage=6">Stage 6</a>
-            <a class="stage" href="?stage=7">Stage 7</a>
-            <a class="stage" href="?stage=8">Stage 8</a>
-            <a class="stage" href="?stage=9">Stage 9</a>
-            <a class="stage" href="?stage=10">Stage 10</a>
-        </div>`;
+            let stages = document.createElement("stages");
+            stages.classList.add("stages");
+            fetch('content/data.json')
+            .then(response => response.json())
+            .then(res=>{
+                for(let id=1;id<=10;id++){
+                    let data = res[id];
+                    let stage = document.createElement("a");
+                    stage.classList.add("stage");
+                    if(window.localStorage.getItem(`stage-${id}`) != null && CryptoJS.SHA1(window.localStorage.getItem(`stage-${id}`)).toString() == data.key){
+                        stage.classList.add("passed");
+                    }
+                    stage.href = `?stage=${id}`;
+                    stage.innerHTML = `Stage ${id}<hr class="underline">${data.name}`;
+
+                    stages.appendChild(stage);
+                }
+            });
+            div.appendChild(stages);
             document.querySelector("section.chall").appendChild(div);
         }
         fetch('content/data.json')
@@ -42,18 +49,26 @@
         .then(res => {
             if(id != null && (1 > Number(id) || Number(id) > 10)) window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0";
             if(id != null){
+                if(res[id]["require"] !== null){
+                    res[id]["require"].forEach(idx => {
+                        if(CryptoJS.SHA1(window.localStorage.getItem(`stage-${idx}`)).toString() != res[idx]["key"]){
+                            alert(`Please do Stage-${idx} to unlock this stage!`);
+                            window.location.href = "play.html";
+                        }
+                    });
+                }
                 res = res[id];
                 
                 document.querySelector("section.chall").classList.add("center");
 
                 let div = document.createElement("div");
                 
-                console.log("Name : ", res.name);
+                // console.log("Name : ", res.name);
                 let name = document.createElement("p");
-                name.innerText = `Name : ${res.name}`;
+                name.innerHTML = `Name : ${res.name}`;
                 div.appendChild(name);
                 
-                console.log("Challenge : ", res.challenge);
+                // console.log("Challenge : ", res.challenge);
                 let challenge = document.createElement("p");
                 challenge.innerHTML = `Challenge : ${res.challenge}`;
                 div.appendChild(challenge);
@@ -68,6 +83,23 @@
                         a.href = `content/${id}/${file}`;
                         a.innerText = `${file}`;
                         container.appendChild(a);
+                        list.appendChild(container);
+                    });
+                    div.appendChild(list);
+                }
+                // console.log(res);
+                // console.log("Preview : ",res.hints);
+                if(res.hints != null){
+                    let list = document.createElement("div");
+                    let cnt = 1;
+                    res.hints.forEach((_, index) => {
+                        let container = document.createElement("div");
+                        container.classList.add("file");
+                        let btn = document.createElement("button");
+                        btn.innerText = `Hint #${index+1}`;
+                        btn.onclick = () => hint(index);
+                        cnt += 1;
+                        container.appendChild(btn);
                         list.appendChild(container);
                     });
                     div.appendChild(list);
@@ -129,6 +161,22 @@
                 alert("Incorrect *^*");
                 document.getElementById(`ans-${id}`).value = "";
             }
+        })
+        .catch(error => {
+            console.error("Error loading JSON:", error);
+        });
+    }
+
+    function hint(cnt){
+        let id = new URLSearchParams(document.location.search).get("stage");
+
+        fetch('content/data.json')
+        .then(response => response.json())
+        .then(res => {
+            // console.log(cnt);
+            let txt = res[id]["hints"][cnt];
+            alert(txt);
+            return;
         })
         .catch(error => {
             console.error("Error loading JSON:", error);

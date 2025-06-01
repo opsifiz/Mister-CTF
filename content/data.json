@@ -21,8 +21,8 @@
         "key" : "b157a8188de5096075c181868511a77c6f64ae74"
     },
     "4" : {
-        "name" : "อย่าแกะ__หนูน๊ะะ >~< อ๊าาา~~~ //โดนแกะ zip",
-        "challenge" : "ขวั่กๆ แกร๊กๆๆๆๆๆๆ ก็<a href=\"https://youtu.be/VLXtaFXsUHA?si=uf_1p5AO_OPcjX5I&t=1207\">แกะ</a>รหัสผ่านเลย",
+        "name" : "อย่าแกะ__หนูน๊ะะ<br>>~<",
+        "challenge" : "อ๊าาา~~~ /*โดนแกะ zip*/ ขวั่กๆ แกร๊กๆๆๆๆๆๆ ก็<a href=\"https://youtu.be/VLXtaFXsUHA?si=uf_1p5AO_OPcjX5I&t=1207\">แกะ</a>รหัสผ่านเลย",
         "files" : ["yamaetekudasai.jpg"],
         "flag" : "5c783a5231d317acc5038e12eba6e190",
         "key" : "9492f8548e38de859b64d18329b61814f8795fbe"
@@ -42,11 +42,13 @@
         "key" : "51675d1afdb11303586a7c9c1bf21fc643ac0e01"
     },
     "7" : {
-        "name" : "",
-        "challenge" : "",
-        "files" : [],
-        "flag" : "",
-        "key" : ""
+        "name" : "meme_boi2 x Dormon",
+        "challenge" : "meme_boi2 และ Dormon ได้กิน snickers ด้วยกัน โดยทั้งคู่ได้แบ่งกันกินคนละฝั่ง โดยการผลัดกันกัด จนเหลือชิ้นสุดท้ายและไม่สามารถแบ่งโดยการกัดได้อีก เขาเลยได้แบ่ง snicker ออกเป็น 2 ส่วน โดย meme_boi2 ได้ให้งูกินไปแล้ว ส่วน Dormon ได้เก็บไว้ในตู้เซฟ<br><p style=\"font-weight: bold;\">งานของคุณคือ</p>การตามหา snickers ที่ถูกแยกมาต่อกัน แล้ว snickers จะบอกสิ่งที่คุณตามหา",
+        "files" : ["งู.py","ตู้เซฟ"],
+        "require" : [4,5],
+        "hints" : ["นายจอนผู้ rip สามารถช่วยคุณได้","จอนต้องการ rockyou"],
+        "flag" : "3ce1a30591d22b2fdaeec285997c7e63",
+        "key" : "bd4bf81aa36a0beeb2ff7db61bc0f32200bf7e0f"
     },
     "8" : {
         "name" : "",
@@ -69,7 +71,19 @@
         "flag" : "",
         "key" : ""
     },
-    "extra" : {
+    "extra1" : {
+        "name" : "",
+        "challenge" : "",
+        "files" : [],
+        "flag" : ""
+    },
+    "extra2" : {
+        "name" : "",
+        "challenge" : "",
+        "files" : [],
+        "flag" : ""
+    },
+    "extra3" : {
         "name" : "",
         "challenge" : "",
         "files" : [],

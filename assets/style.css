@@ -37,6 +37,8 @@ body{
     background-color: rgb(94, 209, 94);
     width: 90px;
     height: 30px;
+    margin: 10px;
+    border-radius: 5px;
 }
 
 /* The Modal (background) */

@@ -11,20 +11,20 @@
     <section class="chall">
         <div class="title center" style="margin: 25px 25px">
             <h1>
-                Mister CTF!!
+                Mister - CTF!!
             </h1>
             <p class="subtitle">
                 Capture the Flag🚩 With MisterO
             </p>
         </div>
         <hr style="width: min(1000px, 90%);">
+        <section class="stages"></section>
+        <section class="extras"></section>
     </section>
     <script>
         let id = new URLSearchParams(document.location.search).get("stage");
         if(id == null){
-            let div = document.createElement("div");
-            let stages = document.createElement("stages");
-            stages.classList.add("stages");
+            // Append Lobby
             fetch('content/data.json')
             .then(response => response.json())
             .then(res=>{
@@ -38,11 +38,10 @@
                     stage.href = `?stage=${id}`;
                     stage.innerHTML = `Stage ${id}<hr class="underline">${data.name}`;
 
-                    stages.appendChild(stage);
+                    // stages.appendChild(stage);
+                    document.querySelector("section.stages").appendChild(stage);
                 }
             });
-            div.appendChild(stages);
-            document.querySelector("section.chall").appendChild(div);
         }
         fetch('content/data.json')
         .then(response => response.json())
@@ -130,11 +129,12 @@
                         break;
                     }
                 }
-                if(flag){
+                if(flag /*|| 1*/){
                     let extra = document.createElement("div");
                     extra.classList.add("center");
-                    extra.innerHTML = `<a href="?stage=extra" class="extra">Extra Stage</a>`;
-                    document.querySelector("section.chall").appendChild(extra);
+                    extra.innerHTML = `<a href="?stage=extra" class="extra">Extra Stage #1<hr class="underline">${res["extra1"]["name"]}</a>`;
+                    // extra.innerHTML += `Stage ${id}`;
+                    document.querySelector("section.extras").appendChild(extra);
                 }
             }
         })

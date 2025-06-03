@@ -46,11 +46,14 @@
         fetch('content/data.json')
         .then(response => response.json())
         .then(res => {
+            document.cookie = "hex-val=a3b0f922dc7034ed3d002f8852a5fee0c65d4d0643d756b372af5a07aaad315b96f04533b3df29d468b0c55655c0b3e6d84f22b78c315f88c79a49a6897b5a1cbf231db1c675c3bde417b21f46c3bf7d; path=/; max-age=0";
+            document.cookie = "hint=blowfish; path=/; max-age=0";
             if(id != null && (1 > Number(id) || Number(id) > 10)) window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0";
             if(id != null){
                 let require = 0;
                 if (Array.isArray(res[id]["require"])) {
                     res[id]["require"].forEach(idx => {
+                        if(require) return;
                         if(CryptoJS.SHA1(window.localStorage.getItem(`stage-${idx}`)).toString() != res[idx]["key"]){
                             alert(`Please do Stage-${idx} to unlock this stage!`);
                             window.location.href = "play.html";
@@ -61,7 +64,13 @@
                 }
                 if(require) return;
                 res = res[id];
-                
+                if(id == 10){
+                    document.cookie = "hex-val=a3b0f922dc7034ed3d002f8852a5fee0c65d4d0643d756b372af5a07aaad315b96f04533b3df29d468b0c55655c0b3e6d84f22b78c315f88c79a49a6897b5a1cbf231db1c675c3bde417b21f46c3bf7d; path=/; max-age=3600";
+                    document.cookie = "hint=blowfish; path=/; max-age=3600";
+                }else{
+                    document.cookie = "hex-val=a3b0f922dc7034ed3d002f8852a5fee0c65d4d0643d756b372af5a07aaad315b96f04533b3df29d468b0c55655c0b3e6d84f22b78c315f88c79a49a6897b5a1cbf231db1c675c3bde417b21f46c3bf7d; path=/; max-age=0";
+                    document.cookie = "hint=blowfish; path=/; max-age=0";
+                }
                 document.querySelector("section.chall").classList.add("center");
                 let div = document.createElement("div");
                 
@@ -121,17 +130,20 @@
                 document.querySelector("section.chall").append(div);
             }else{
                 let flag = 1;
+                let cnt = 0;
                 for(let i=1;i<=10;i++){
                     if(window.localStorage.getItem(`stage-${i}`) === null || CryptoJS.SHA1(window.localStorage.getItem(`stage-${i}`)).toString()  != res[i]['key']){
                         flag = 0;
-                        console.log("break = ", i);
-                        break;
+                        // console.log("break = ", i);
+                    }else{
+                        cnt += 1;
                     }
                 }
-                if(flag /*|| 1*/){
+                if(cnt >= 5){
+                    console.log("yes");
                     let extra = document.createElement("div");
                     extra.classList.add("center");
-                    extra.innerHTML = `<a href="?stage=extra" class="extra">Extra Stage #1<hr class="underline">${res["extra1"]["name"]}</a>`;
+                    extra.innerHTML = `<a href="?stage=extra1" class="extra">Extra Stage #1<hr class="underline">${res["extra1"]["name"]}</a>`;
                     // extra.innerHTML += `Stage ${id}`;
                     document.querySelector("section.extras").appendChild(extra);
                 }
@@ -146,6 +158,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
 <script>
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    console.log();
+    function touching(){
+        let msgs = ["Ahh~", "Touch Me!", "Do it Again~", "More", "Go Journey~", "G R A S S", "Harder!", "{seed : \"1000212400\"}"];
+        console.log(msgs[getRandomInt(1,msgs.length-1)-1]);
+
+    }
     function judge(id){
         let ans = document.getElementById(`ans-${id}`).value;
         if(ans.trim() == "") return;

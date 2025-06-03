@@ -82,11 +82,11 @@
     },
     "extra1" : {
         "name" : " Where am I?",
-        "challenge" : "",
-        "files" : [],
+        "challenge" : "MROCTF{\"หาด____\":\"YYYY:MM:SS\"} เช่น MROCTF{หาดชาย:2025:11:12}",
+        "files" : ["where.jpg"],
         "require" : [1,2,3,4,5,6,7,8,9,10],
-        "flag" : "",
-        "key" : ""
+        "flag" : "c7931748ec7174452b3601835b3df428",
+        "key" : "18698ceabb599930b636dc4f56c4bd48a3492615"
     },
     "extra2" : {
         "name" : "Does it ever exist?",

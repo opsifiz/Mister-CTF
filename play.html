@@ -9,6 +9,9 @@
 </head>
 <body class="center">
     <section class="chall">
+        <button class="back center" onclick="back()">
+            <p>&lt;</p>
+        </button>
         <div class="title center" style="margin: 25px 25px">
             <h1>
                 Mister - CTF!!
@@ -18,13 +21,22 @@
             </p>
         </div>
         <hr style="width: min(1000px, 90%);">
-        <section class="stages"></section>
-        <section class="extras"></section>
+        <section class="navs">
+            <!-- <button class="nav arrow">&lt;</button>
+            <p class="label nav">Label</p>
+            <button class="nav arrow">&gt;</button> -->
+        </section>
     </section>
     <script>
         let id = new URLSearchParams(document.location.search).get("stage");
         if(id == null){
             // Append Lobby
+            let stages = document.createElement("section");
+            stages.classList.add("stages");
+            document.querySelector("section.chall").appendChild(stages);
+            let extras = document.createElement("section");
+            extras.classList.add("extras");
+            document.querySelector("section.chall").appendChild(extras);
             fetch('content/data.json')
             .then(response => response.json())
             .then(res=>{
@@ -37,8 +49,6 @@
                     }
                     stage.href = `?stage=${id}`;
                     stage.innerHTML = `Stage ${id}<hr class="underline">${data.name}`;
-
-                    // stages.appendChild(stage);
                     document.querySelector("section.stages").appendChild(stage);
                 }
             });
@@ -51,6 +61,7 @@
             if(id != null && (1 > Number(id) || Number(id) > 10)) window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0";
             if(id != null){
                 let require = 0;
+                // console.log("id : ", id);
                 if (Array.isArray(res[id]["require"])) {
                     res[id]["require"].forEach(idx => {
                         if(require) return;
@@ -64,6 +75,28 @@
                 }
                 if(require) return;
                 res = res[id];
+
+                let prev = document.createElement("button");
+                prev.classList.add("arrow");
+                prev.classList.add("nav");
+                prev.innerText = "<";
+                prev.onclick = () => previousPage(id);
+                document.querySelector("section.navs").appendChild(prev);
+                
+                let label = document.createElement("p");
+                label.classList.add("label");
+                label.classList.add("nav");
+                if(Number(id)) label.innerText = `Stage - ${id}`;
+                else label.innerText = `Extra Stage #${id[id.length-1]}`;
+                document.querySelector("section.navs").appendChild(label);
+                
+                let next = document.createElement("button");
+                next.classList.add("arrow");
+                next.classList.add("nav");
+                next.innerText = ">";
+                next.onclick = () => nextPage(id);
+                document.querySelector("section.navs").appendChild(next);
+
                 if(id == 10){
                     document.cookie = "hex-val=a3b0f922dc7034ed3d002f8852a5fee0c65d4d0643d756b372af5a07aaad315b96f04533b3df29d468b0c55655c0b3e6d84f22b78c315f88c79a49a6897b5a1cbf231db1c675c3bde417b21f46c3bf7d; path=/; max-age=3600";
                     document.cookie = "hint=blowfish; path=/; max-age=3600";
@@ -98,8 +131,6 @@
                     });
                     div.appendChild(list);
                 }
-                // console.log(res);
-                // console.log("Preview : ",res.hints);
                 if(res.hints != null){
                     let list = document.createElement("div");
                     let cnt = 1;
@@ -134,18 +165,27 @@
                 for(let i=1;i<=10;i++){
                     if(window.localStorage.getItem(`stage-${i}`) === null || CryptoJS.SHA1(window.localStorage.getItem(`stage-${i}`)).toString()  != res[i]['key']){
                         flag = 0;
-                        // console.log("break = ", i);
                     }else{
                         cnt += 1;
                     }
                 }
                 if(cnt >= 5){
-                    console.log("yes");
-                    let extra = document.createElement("div");
-                    extra.classList.add("center");
-                    extra.innerHTML = `<a href="?stage=extra1" class="extra">Extra Stage #1<hr class="underline">${res["extra1"]["name"]}</a>`;
-                    // extra.innerHTML += `Stage ${id}`;
-                    document.querySelector("section.extras").appendChild(extra);
+                    let extra1 = document.createElement("div");
+                    extra1.classList.add("center");
+                    extra1.innerHTML = `<a href="?stage=extra1" class="extra"${window.localStorage.getItem(`stage-extra1`) !== null && CryptoJS.SHA1(window.localStorage.getItem("stage-extra1")).toString()  == res["extra1"]['key']?'style="background-color:#53ff53;"' : ""}>Extra Stage #1<hr class="underline">${res["extra1"]["name"]}</a>`;
+                    document.querySelector("section.extras").appendChild(extra1);
+                }
+                if(window.localStorage.getItem(`stage-extra1`) !== null && CryptoJS.SHA1(window.localStorage.getItem("stage-extra1")).toString()  == res["extra1"]['key']){
+                    let extra2 = document.createElement("div");
+                    extra2.classList.add("center");
+                    extra2.innerHTML = `<a href="?stage=extra2" class="extra"${window.localStorage.getItem(`stage-extra2`) !== null && CryptoJS.SHA1(window.localStorage.getItem("stage-extra2")).toString()  == res["extra2"]['key']?'style="background-color:#53ff53;"' : ""}>Extra Stage #2<hr class="underline">${res["extra2"]["name"]}</a>`;
+                    document.querySelector("section.extras").appendChild(extra2);
+                }
+                if(window.localStorage.getItem(`stage-extra3`) !== null && CryptoJS.SHA1(window.localStorage.getItem("stage-extra3")).toString()  == res["extra3"]['key']){
+                    let extra3 = document.createElement("div");
+                    extra3.classList.add("center");
+                    extra3.innerHTML = `<a href="?stage=extra3" class="extra" style="background-color:#53ff53;">Extra Stage #3<hr class="underline">${res["extra3"]["name"]}</a>`;
+                    document.querySelector("section.extras").appendChild(extra3);
                 }
             }
         })
@@ -170,6 +210,7 @@
         console.log(msgs[getRandomInt(1,msgs.length-1)-1]);
 
     }
+
     function judge(id){
         let ans = document.getElementById(`ans-${id}`).value;
         if(ans.trim() == "") return;
@@ -192,6 +233,30 @@
         .catch(error => {
             console.error("Error loading JSON:", error);
         });
+    }
+
+    function back(){
+        if (window.location.href.endsWith("play.html")) {
+            window.location.href = "/";
+        } else {
+            window.location.href = "play.html";
+        }
+    }
+
+    function previousPage(id){
+        if(Number(id)) window.location.href = `play.html?stage=${((id-2+10)%10+1)}`;
+        else{
+            id = id[id.length-1];
+            window.location.href = `play.html?stage=extra${((id-2+2)%2+1)}`;
+        }
+    }
+
+    function nextPage(id){
+        if(Number(id)) window.location.href = `play.html?stage=${((Number(id)+10)%10+1)}`;
+        else{
+            id = id[id.length-1];
+            window.location.href = `play.html?stage=extra${((Number(id)+2)%2+1)}`;
+        }
     }
 
     function hint(cnt){

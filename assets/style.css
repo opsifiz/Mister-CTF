@@ -60,6 +60,7 @@ body{
     background-color: white;
     width: 80%;
     padding: 10px;
+    border-radius: 25px;
 }
 
 .file{
@@ -86,7 +87,7 @@ body{
 }
 
 /* Modal Content */
-.modal-content {
+.modal-content{
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
@@ -94,22 +95,64 @@ body{
   width: 80%;
 }
 
-.close {
+.close{
   color: red;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.stages {
+.back{
+    border-radius: 5px;
+    margin: 0px;
+    padding: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    position: fixed;
+    top: 40px;
+    left: 15%;
+    z-index: 1000;
+}
+
+.stages{
     display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-template-rows: repeat(2, auto);
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
     padding: 20px;
     justify-content: center;
+    justify-items: center;
     align-items: center;
+    max-width: calc(160px * 5 + 40px * 4); /* max 5 columns + 4 gaps */
+    margin: 0 auto;
+}
 
+@media (max-width: 1200px) {
+    .stages {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 3 columns */
+@media (max-width: 1000px) {
+    .stages {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 2 columns */
+@media (max-width: 700px) {
+    .stages {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 1 column */
+@media (max-width: 500px) {
+    .stages {
+        grid-template-columns: 1fr;
+    }
 }
 
 .stage{
@@ -131,7 +174,14 @@ body{
     color: black;
 }
 
+.extras{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .extra{
+    margin: 10px;
     text-decoration: none;
     color: black;
     width: 150px;
@@ -141,4 +191,40 @@ body{
     border: 1px solid #ccc;
     border-radius: 8px;
     font-weight: bold;
+}
+
+.navs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav{
+    all: unset;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.label{
+    font-size: 30px;
+}
+
+.arrow{
+    font-weight: bold;
+    font-size: 45px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: none;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+.arrow:hover{
+    background: rgba(0, 0, 0, 0.05);
 }

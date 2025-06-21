@@ -85,6 +85,7 @@
         "challenge" : "Touch some Grass and feel the flag<br>Touch<p style=\"display: none;\">.. ...- ---... - ----- ..- -.-. .... .---- -. --.<p> Grass!<br><img alt=\"morse\" onclick=\"touching();\" src=\"assets/imgs/grass.png\" style=\"height: 90px; cursor: pointer;\">",
         "files" : [],
         "require" : [3],
+        "hints" : [],
         "flag" : "2b2571a0c6a4bfacff13bb447e36809c",
         "key" : "145224ce3cbb997e172148a1463912d1a5cc339b"
     },

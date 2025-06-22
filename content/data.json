@@ -46,7 +46,7 @@
     },
     "6" : {
         "name" : "O(log(lufychop))",
-        "challenge" : "=kp8oouh4k84^,b.0,ks]y'0kdwfhgsiupPmv',k c9jfh;p8;k,;jk'gx]jkmujvp^j.o.0g-k g-k07'vpkd.sh8ovnjoi^h0ydg-kfh;p Ffp86I9hv'sk;jkg-k8nv.8i<br>Answer Format : MROCTF{[=njv0ib'-v'g-k]:[d6Pc0]} เช่น MROCTF{คนหล่อ:1234}",
+        "challenge" : "=kp8oouh4k84^,b.0,ks]y'0kdwfhgsiupPmv',k c9jfh;p8;k,;jk'gx]jkmujvp^j.o.0g-k g-k07'vpkd.sh8ovnjoi^h0ydg-kfh;p Ffp86I9hv'sk;jkg-k8nv.8i<br>Answer Format : MROCTF{=njv0ib'-v'g-k:d6Pc0} เช่น MROCTF{คนหล่อ:1234}",
         "files" : ["whoishe.png","d6Pc0.cpp","d6Pc0.exe"],
         "require" : [7],
         "hints" : [],
@@ -91,11 +91,11 @@
     },
     "extra1" : {
         "name" : " Where am I?",
-        "challenge" : "MROCTF{\"หาด____\":\"YYYY:MM:SS\"} เช่น MROCTF{หาดชาย:2025:11:12}",
+        "challenge" : "MROCTF{หาด____:HH:MM} เช่น MROCTF{หาดชาย:23:59}",
         "files" : ["where.jpg"],
         "require" : [1,2,3,4,5,6,7,8,9,10],
-        "flag" : "c7931748ec7174452b3601835b3df428",
-        "key" : "18698ceabb599930b636dc4f56c4bd48a3492615"
+        "flag" : "6b6fe9250c01c76767ee4082c9cd7ed6",
+        "key" : "51913ae586754ef85da5b0087adc29e92c2ee092"
     },
     "extra2" : {
         "name" : "Does it ever exist?",

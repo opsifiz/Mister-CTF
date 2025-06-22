@@ -223,7 +223,8 @@
                 alert("Correct!!");
                 alert("Get Ready for NEXT Stage!!");
                 window.localStorage.setItem(`stage-${id}`, CryptoJS.SHA1(ans).toString());
-                window.location.href = "play.html?stage=" + (Number(id) + 1);
+                if(id === "extra1") window.location.href = "play.html?stage=extra2";
+                else window.location.href = "play.html?stage=" + (Number(id) + 1);
             }else{
                 alert("Incorrect *^*");
                 document.getElementById(`ans-${id}`).value = "";
@@ -236,7 +237,7 @@
 
     function back(){
         if (window.location.href.endsWith("play.html")) {
-            window.location.href = "/";
+            window.location.href = "/index.html";
         } else {
             window.location.href = "play.html";
         }

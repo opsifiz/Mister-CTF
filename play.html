@@ -63,6 +63,7 @@
                 let require = 0;
                 // console.log("id : ", id);
                 if (Array.isArray(res[id]["require"])) {
+                    if(id === "extra3"){ window.location.href = "https://www.youtube.com/watch?v=itJ_DJVKAW0"; return; }
                     res[id]["require"].forEach(idx => {
                         if(require) return;
                         if(CryptoJS.SHA1(window.localStorage.getItem(`stage-${idx}`)).toString() != res[idx]["key"]){
@@ -221,9 +222,15 @@
             var hash = CryptoJS.MD5(ans);
             if(flag == hash){
                 alert("Correct!!");
-                alert("Get Ready for NEXT Stage!!");
                 window.localStorage.setItem(`stage-${id}`, CryptoJS.SHA1(ans).toString());
+                if(id === "extra2"){
+                    alert("You are the winner but are you the one who solved all stages?");
+                    window.location.href = "play.html";
+                    return;
+                }
+                alert("Get Ready for NEXT Stage!!");
                 if(id === "extra1") window.location.href = "play.html?stage=extra2";
+                else if(id == 10) window.location.href = "play.html?stage=extra1";
                 else window.location.href = "play.html?stage=" + (Number(id) + 1);
             }else{
                 alert("Incorrect *^*");

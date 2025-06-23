@@ -99,17 +99,17 @@
     },
     "extra2" : {
         "name" : "Does it ever exist?",
-        "challenge" : "ไม่มี ไม่หนี ไม่บิด ไม่จ่าย",
+        "challenge" : "ไม่มี ไม่หนี ไม่บิด ไม่จ่าย <p style=\"display: none;\">ไม่บอกว่าอยู่ใน Github</p>",
         "files" : [],
         "require" : ["extra1"],
-        "flag" : "",
-        "key" : ""
+        "flag" : "394cd45bcd7beb7406548034d9974238",
+        "key" : "e3b77771fb749a150947531d0b276b2f170dcee6"
     },
     "extra3" : {
         "name" : "Never Figure Out!!",
         "challenge" : "สุดท้ายแล้ว ทุกอย่างเป็นแค่ภาพลวงตาที่ถูกเนรมิตขึ้นจาก HTML CSS และ JS",
         "files" : [],
-        "require" : [],
+        "require" : [1,2,3,4,5,6,7,8,9,10,"extra1","extra2"],
         "flag" : "",
         "key" : ""
     }

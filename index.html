@@ -25,9 +25,9 @@
             </h3>
         </div>
         <br>
-        <div class="about" id="about-btn">
-            <h3 class="action center" onclick="about()">
-                About
+        <div class="tutorial" id="tutorial-btn">
+            <h3 class="action center" onclick="tutorial()">
+                Tutorial
             </h3>
         </div>
         <br>
@@ -38,11 +38,17 @@
         </div>
     </section>
     <!-- The Modal -->
-    <div id="about-content" class="modal">
+    <div id="tutorial-content" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close" id="close-about">&times;</span>
-            <p>I AM MISTER OOOOOOOO</p>
+            <span class="close" id="close-tutorial">&times;</span>
+            <p class="modal-title">Tutorial for Mister - CTF</p>
+            <hr>
+            <div class="center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/IxLzldAANNg?si=1Gg5P1BajIwUrDlz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <br>
+            <p><span class="label">Flag Format : </span><span class="code">MROCTF{**********}</span></p>
         </div>
     </div>
     <!-- The Modal -->
@@ -50,6 +56,8 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close" id="close-contact">&times;</span>
+            <p class="modal-title">Contacts</p>
+            <hr>
             <p>
                 FB : Pachara Thammasat<br>
                 IG: m1573r_0p51f12<br>
@@ -61,8 +69,8 @@
     </div>
 </body>
 <script>
-    var modal1 = document.getElementById("about-content");
-    var btn1 = document.getElementById("about-btn");
+    var modal1 = document.getElementById("tutorial-content");
+    var btn1 = document.getElementById("tutorial-btn");
     var span1 = document.getElementsByClassName("close")[0];
     btn1.onclick = function() {
         modal1.style.display = "block";
@@ -93,8 +101,8 @@
         console.log("Play!!");
         window.location.href = "play.html"
     }
-    function about(){
-        console.log("about!!");
+    function tutorial(){
+        console.log("tutorial!!");
     }
     function contact(){
         console.log("contact!!");

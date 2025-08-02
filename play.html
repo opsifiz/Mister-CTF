@@ -46,6 +46,8 @@
                     stage.classList.add("stage");
                     if(window.localStorage.getItem(`stage-${id}`) != null && CryptoJS.SHA1(window.localStorage.getItem(`stage-${id}`)).toString() == data.key){
                         stage.classList.add("passed");
+                    }else if(window.localStorage.getItem(`stage-${id}`) != null && CryptoJS.SHA1(window.localStorage.getItem(`stage-${id}`)).toString() != data.key){
+                        stage.classList.add("wrong_hash");
                     }
                     stage.href = `?stage=${id}`;
                     stage.innerHTML = `Stage ${id}<hr class="underline">${data.name}`;
@@ -105,6 +107,7 @@
                     document.cookie = "hex-val=a3b0f922dc7034ed3d002f8852a5fee0c65d4d0643d756b372af5a07aaad315b96f04533b3df29d468b0c55655c0b3e6d84f22b78c315f88c79a49a6897b5a1cbf231db1c675c3bde417b21f46c3bf7d; path=/; max-age=0";
                     document.cookie = "hint=blowfish; path=/; max-age=0";
                 }
+
                 document.querySelector("section.chall").classList.add("center");
                 let div = document.createElement("div");
                 
@@ -126,12 +129,14 @@
                         // console.log("File : ",file)
                         let a = document.createElement("a");
                         a.href = `content/${id}/${file}`;
+                        a.download = file
                         a.innerText = `${file}`;
                         container.appendChild(a);
                         list.appendChild(container);
                     });
                     div.appendChild(list);
                 }
+
                 if(res.hints != null){
                     let list = document.createElement("div");
                     let cnt = 1;
@@ -197,74 +202,10 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-
+<script src="script/stage10.js"></script>
+<script src="script/main.js"></script>
 <script>
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-
-    function touching(){
-        let msgs = ["Ahh~", "Touch Me!", "Do it Again~", "More", "Go Journey~", "G R A S S", "Harder!", "{seed : \"1000212400\"}"];
-        console.log(msgs[getRandomInt(1,msgs.length-1)-1]);
-
-    }
-
-    function judge(id){
-        let ans = document.getElementById(`ans-${id}`).value;
-        if(ans.trim() == "") return;
-        fetch('content/data.json')
-        .then(response => response.json())
-        .then(res => {
-            let flag = res[id].flag;
-            console.log(ans);
-            var hash = CryptoJS.MD5(ans);
-            if(flag == hash){
-                alert("Correct!!");
-                window.localStorage.setItem(`stage-${id}`, CryptoJS.SHA1(ans).toString());
-                if(id === "extra2"){
-                    alert("You are the winner but are you the one who solved all stages?");
-                    window.location.href = "play.html";
-                    return;
-                }
-                alert("Get Ready for NEXT Stage!!");
-                if(id === "extra1") window.location.href = "play.html?stage=extra2";
-                else if(id == 10) window.location.href = "play.html?stage=extra1";
-                else window.location.href = "play.html?stage=" + (Number(id) + 1);
-            }else{
-                alert("Incorrect *^*");
-                document.getElementById(`ans-${id}`).value = "";
-            }
-        })
-        .catch(error => {
-            console.error("Error loading JSON:", error);
-        });
-    }
-
-    function back(){
-        if (window.location.href.endsWith("play.html")) {
-            window.location.href = "/index.html";
-        } else {
-            window.location.href = "play.html";
-        }
-    }
-
-    function previousPage(id){
-        if(Number(id)) window.location.href = `play.html?stage=${((id-2+10)%10+1)}`;
-        else{
-            id = id[id.length-1];
-            window.location.href = `play.html?stage=extra${((id-2+2)%2+1)}`;
-        }
-    }
-
-    function nextPage(id){
-        if(Number(id)) window.location.href = `play.html?stage=${((Number(id)+10)%10+1)}`;
-        else{
-            id = id[id.length-1];
-            window.location.href = `play.html?stage=extra${((Number(id)+2)%2+1)}`;
-        }
-    }
+    
 
     function hint(cnt){
         let id = new URLSearchParams(document.location.search).get("stage");

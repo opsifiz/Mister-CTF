@@ -86,13 +86,13 @@ body{
     color: white;
 }
 
-/* Modal Content */
 .modal-content{
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 60%;
+  height: 500px;
 }
 
 .close{
@@ -100,6 +100,11 @@ body{
   float: right;
   font-size: 28px;
   font-weight: bold;
+}
+
+.modal-title{
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .back{
@@ -169,6 +174,10 @@ body{
     background-color: #53ff53;
 }
 
+.wrong_hash{
+    background-color: #ff4444;
+}
+
 .stages a{
     text-decoration: none;
     color: black;
@@ -225,6 +234,19 @@ body{
     justify-content: center;
     transition: background 0.2s, color 0.2s;
 }
+
 .arrow:hover{
     background: rgba(0, 0, 0, 0.05);
+}
+
+.label{
+    font-weight: bold;
+}
+
+.code{
+    background-color: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 20px;
 }

@@ -35,6 +35,21 @@ function judge(id){
     });
 }
 
+function hint(cnt){
+    let id = new URLSearchParams(document.location.search).get("stage");
+    fetch('content/data.json')
+    .then(response => response.json())
+    .then(res => {
+        // console.log(cnt);
+        let txt = res[id]["hints"][cnt];
+        alert(txt);
+        return;
+    })
+    .catch(error => {
+        console.error("Error loading JSON:", error);
+    });
+}
+
 function previousPage(id){
     if(Number(id)) window.location.href = `play.html?stage=${((id-2+10)%10+1)}`;
     else{

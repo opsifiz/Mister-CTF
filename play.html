@@ -110,7 +110,8 @@
 
                 document.querySelector("section.chall").classList.add("center");
                 let div = document.createElement("div");
-                
+                div.classList.add("chall");
+
                 // console.log("Name : ", res.name);
                 let name = document.createElement("p");
                 name.innerHTML = `Name : ${res.name}`;
@@ -204,23 +205,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script src="script/stage10.js"></script>
 <script src="script/main.js"></script>
-<script>
-    
-
-    function hint(cnt){
-        let id = new URLSearchParams(document.location.search).get("stage");
-
-        fetch('content/data.json')
-        .then(response => response.json())
-        .then(res => {
-            // console.log(cnt);
-            let txt = res[id]["hints"][cnt];
-            alert(txt);
-            return;
-        })
-        .catch(error => {
-            console.error("Error loading JSON:", error);
-        });
-    }
-</script>
 </html>

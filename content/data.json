@@ -4,13 +4,13 @@
         "challenge" : "Hide<p style=\"display: none;\">MROCTF{CAN-You-SEE-M3}</p> here!!!",
         "files" : [],
         "require" : [],
-        "hints" : [],
+        "hints" : ["Dev Tools", "F12/Inspect", "Inspect Hide here!!!"],
         "flag" : "5268463451b0056bfbd2ae9b38aae285",
         "key" : "03d898e68b5aab3078517206a0d06eb428194069"
     },
     "2" : {
-        "name" : "Q <a href=\"https://youtu.be/yBLdQ1a4-JI?si=S2Ht_7heNYSp3JKZ&t=13\">Ahh!~</a>",
-        "challenge" : "Scan Q <a href=\"https://youtu.be/yBLdQ1a4-JI?si=S2Ht_7heNYSp3JKZ&t=13\">Ahh!~</a> แล้ว Flag จะออก!!!",
+        "name" : "Q <a href=\"https://youtu.be/yBLdQ1a4-JI?t=13\">Ahh!~</a>",
+        "challenge" : "Scan Q <a href=\"https://youtu.be/yBLdQ1a4-JI?t=13\">Ahh!~</a> แล้ว Flag จะออก!!!",
         "files" : ["qrcode.pdf"],
         "require" : [1],
         "hints" : [],
@@ -28,7 +28,7 @@
     },
     "4" : {
         "name" : "อย่าแกะ__หนูน๊ะะ<br>>~<",
-        "challenge" : "อ๊าาา~~~ /*โดนแกะ zip*/ ขวั่กๆ แกร๊กๆๆๆๆๆๆ ก็<a href=\"https://youtu.be/VLXtaFXsUHA?si=uf_1p5AO_OPcjX5I&t=1207\">แกะ</a>รหัสผ่านเลย",
+        "challenge" : "อ๊าาา~~~ /*โดนแกะ zip*/ ขวั่กๆ แกร๊กๆๆๆๆๆๆ ก็<a href=\"https://youtu.be/VLXtaFXsUHA?t=1207\">แกะ</a>รหัสผ่านเลย",
         "files" : ["yamaetekudasai.jpg"],
         "require" : [3],
         "hints" : [],
@@ -109,6 +109,7 @@
         "name" : "Never Figure Out!!",
         "challenge" : "สุดท้ายแล้ว ทุกอย่างเป็นแค่ภาพลวงตาที่ถูกเนรมิตขึ้นจาก HTML CSS และ JS",
         "files" : [],
+        "hints" : ["^"],
         "require" : [1,2,3,4,5,6,7,8,9,10,"extra1","extra2"],
         "flag" : "1dca059a8a327dbae663c352343920c1",
         "key" : "7520d4f780d34294ac9b16fa379268d799d50c8d"

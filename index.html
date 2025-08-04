@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mister CTF</title>
     <link rel="stylesheet" href="./assets/style.css">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="assets/Mr.CTF.png">
 </head>
-<body style="margin-top: 50px;">
+<body style="background-color: #000000;">
+    <img src="assets/Mr.CTF.png" class="bg">
     <section class="nav">
     </section>
     <section class="actions center">
-        <div class="title center" style="margin: 25px 25px">
+        <div class="title center" style="margin-top: 410px;">
             <h1>
                 Mister - CTF!!
             </h1>
@@ -24,14 +25,12 @@
                 Play
             </h3>
         </div>
-        <br>
         <div class="tutorial" id="tutorial-btn">
             <h3 class="action center" onclick="tutorial()">
                 Tutorial
             </h3>
         </div>
-        <br>
-        <div class="contact" id="contact-btn">
+        <div class="contact" id="contact-btn" style="color: white;">
             <h3 class="action center" onclick="contact()">
                 Contact
             </h3>
@@ -45,7 +44,7 @@
             <p class="modal-title">Tutorial for Mister - CTF</p>
             <hr>
             <div class="center">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/IxLzldAANNg?si=1Gg5P1BajIwUrDlz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="ytplayer" width="560" height="315" src="https://www.youtube.com/embed/IxLzldAANNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <br>
             <p><span class="label">Flag Format : </span><span class="code">MROCTF{**********}</span></p>
@@ -58,12 +57,14 @@
             <span class="close" id="close-contact">&times;</span>
             <p class="modal-title">Contacts</p>
             <hr>
-            <p>
-                FB : Pachara Thammasat<br>
-                IG: m1573r_0p51f12<br>
-                DISCORD : opsifiz<br>
-                GITHUB : opsifiz<br>
-                LinkedIn : Pachara Thammasat<br>
+            <p style="font-size: 50px; margin: 0px;">
+                <img src="https://www.svgrepo.com/show/506668/instagram.svg" style="height: 50px; vertical-align: middle; margin: 20px 0px;"> : <a href="https://www.instagram.com/mister_ctf.challenge/" class="contact">mister_ctf.challenge</a>
+                <br>
+                <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" style="height: 50px; vertical-align: middle; margin: 20px 0px;"> : <a href="https://discord.gg/rUkRgCjq4B" class="contact">Mr.O CTF's Server</a>
+                <br>
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" style="height: 50px; vertical-align: middle; margin: 20px 0px;"> : <a href="https://github.com/opsifiz/" class="contact">opsifiz</a>
+                <br>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" style="height: 50px; vertical-align: middle; margin: 20px 0px;"> : <a href="https://www.linkedin.com/in/opsifiz/" class="contact">Pachara Thammasat</a>
             </p>
         </div>
     </div>
@@ -77,6 +78,9 @@
     }
     span1.onclick = function() {
         modal1.style.display = "none";
+        const iframe = document.getElementById('ytplayer');
+        const currentSrc = iframe.src;
+        iframe.src = currentSrc;
     }
     var span2 = document.getElementsByClassName("close")[1];
     var modal2 = document.getElementById("contact-content");
@@ -87,10 +91,13 @@
     span2.onclick = function() {
         modal2.style.display = "none";
     }
-
+    
     window.onclick = function(event) {
         if (event.target == modal1) {
             modal1.style.display = "none";
+            const iframe = document.getElementById('ytplayer');
+            const currentSrc = iframe.src;
+            iframe.src = currentSrc;
         }
         if (event.target == modal2) {
             modal2.style.display = "none";
